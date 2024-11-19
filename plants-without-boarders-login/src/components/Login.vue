@@ -2,50 +2,84 @@
   <div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
     <div class="flex flex-column align-items-center justify-content-center">
       <div style="border-radius: 56px; padding: 0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
-        <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
+        <div
+          class="w-full surface-card py-8 px-5 sm:px-8"
+          style="border-radius: 53px"
+        >
           <div class="text-center mb-5">
-            <img src="@/assets/logo.png" alt="PlantsWithoutBoarders Logo" class="mb-5" style="width: 150px" />
-            <div class="text-900 text-3xl font-medium mb-3">Welcome to PlantsWithoutBoarders!</div>
+            <img
+              src="@/assets/logo.png"
+              alt="PlantsWithoutBoarders Logo"
+              class="mb-5"
+              style="width: 150px"
+            >
+            <div class="text-900 text-3xl font-medium mb-3">
+              Welcome to PlantsWithoutBoarders!
+            </div>
             <span class="text-600 font-medium">Sign in to your account</span>
           </div>
 
           <div>
-            <Message v-if="error" severity="error" :closable="false" class="mb-4">{{ error }}</Message>
+            <PrimeMessage
+              v-if="error"
+              severity="error"
+              :closable="false"
+              class="mb-4"
+            >
+              {{ error }}
+            </PrimeMessage>
             
             <form @submit.prevent="handleLogin">
-              <label for="email" class="block text-900 font-medium mb-2">Email</label>
-              <InputText 
+              <label
+                for="email"
+                class="block text-900 font-medium mb-2"
+              >Email</label>
+              <PrimeInputText 
                 id="email" 
-                type="text" 
                 v-model="email" 
+                type="text" 
                 placeholder="Email address" 
                 class="w-full mb-3" 
                 :class="{'p-invalid': submitted && !email}"
               />
-              <small class="p-error" v-if="submitted && !email">Email is required.</small>
+              <small
+                v-if="submitted && !email"
+                class="p-error"
+              >Email is required.</small>
 
-              <label for="password" class="block text-900 font-medium mb-2 mt-3">Password</label>
-              <Password 
+              <label
+                for="password"
+                class="block text-900 font-medium mb-2 mt-3"
+              >Password</label>
+              <PrimePassword 
                 id="password" 
                 v-model="password" 
                 placeholder="Password" 
-                :toggleMask="true"
+                :toggle-mask="true"
                 :feedback="false"
                 class="w-full mb-3"
-                inputClass="w-full"
+                input-class="w-full"
                 :class="{'p-invalid': submitted && !password}"
               />
-              <small class="p-error" v-if="submitted && !password">Password is required.</small>
+              <small
+                v-if="submitted && !password"
+                class="p-error"
+              >Password is required.</small>
 
               <div class="flex align-items-center justify-content-between mb-6 mt-4">
                 <div class="flex align-items-center">
-                  <Checkbox v-model="rememberMe" id="rememberme" binary class="mr-2" />
+                  <PrimeCheckbox
+                    id="rememberme"
+                    v-model="rememberMe"
+                    binary
+                    class="mr-2"
+                  />
                   <label for="rememberme">Remember me</label>
                 </div>
                 <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
               </div>
 
-              <Button 
+              <PrimeButton 
                 type="submit" 
                 label="Sign In" 
                 icon="pi pi-user" 
@@ -53,19 +87,22 @@
               />
             </form>
 
-            <Divider align="center" class="my-6">
+            <PrimeDivider
+              align="center"
+              class="my-6"
+            >
               <span class="text-600 font-normal text-sm">OR</span>
-            </Divider>
+            </PrimeDivider>
 
             <div class="flex gap-3">
-              <Button 
+              <PrimeButton 
                 label="Google" 
                 icon="pi pi-google" 
                 class="w-6 p-3 text-xl"
                 severity="secondary"
                 outlined
               />
-              <Button 
+              <PrimeButton 
                 label="Facebook" 
                 icon="pi pi-facebook" 
                 class="w-6 p-3 text-xl"
