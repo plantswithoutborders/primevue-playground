@@ -24,9 +24,9 @@ body {
   --primary-color: #4CAF50;
   --primary-color-text: #ffffff;
   --surface-ground: #f3f7f3;
-  --surface-section: #ffffff;
-  --surface-card: #ffffff;
-  --surface-overlay: #ffffff;
+  --surface-section: #f8f8f4;
+  --surface-card: #f8f8f4;
+  --surface-overlay: #f8f8f4;
   --surface-border: #dfe7df;
   --text-color: #495057;
   --text-color-secondary: #6c757d;
